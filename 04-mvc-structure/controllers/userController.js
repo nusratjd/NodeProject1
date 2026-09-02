@@ -1,20 +1,35 @@
-const getUsers = (req, res) => {
-    res.json([
-        { id: 1, name: "dipa" },
-        { id: 2, name: "mim" }
-    ]);
+const createUser = (req, res) => {
+
+    const name = req.body.name;
+    const email = req.body.email;
+
+    res.send(`User created: ${name}, ${email}`);
 };
+
+
+const updateUser = (req, res) => {
+
+    res.send('User updated');
+};
+
+
+const deleteUser = (req, res) => {
+
+    res.send('User deleted');
+};
+
 
 const getUserById = (req, res) => {
-    const id = req.params.id;
 
-    res.json({
-        id: id,
-        name: "User " + id
-    });
+    const userId = req.params.id;
+
+    res.send(`User ID: ${userId}`);
 };
 
+
 module.exports = {
-    getUsers,
+    createUser,
+    updateUser,
+    deleteUser,
     getUserById
 };
